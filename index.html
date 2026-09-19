@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FIBA Referee Academy — Grade 3</title>
+<meta name="description" content="سامانه آموزشی کلاس داوری درجه سه بسکتبال — قوانین، تفسیرها، IOT و 3PO">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand" onclick="goHome()">
+      <div class="brand-mark"><span>F</span><span>I</span><span>B</span><span>A</span></div>
+      <div><strong>REFEREE ACADEMY</strong><small>GRADE 3 • 2026</small></div>
+    </div>
+    <div class="top-actions">
+      <button class="icon-btn" id="searchBtn" title="جستجو">⌕</button>
+      <button class="icon-btn" id="themeBtn" title="حالت نمایش">☼</button>
+      <button class="menu-btn" id="menuBtn">☰</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="home" class="home-screen">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">FIBA OFFICIAL BASKETBALL RULES • 2026</div>
+          <h1>قانون را فقط<br><span>نخوان؛ ببین.</span></h1>
+          <p>یک دوره‌ی تعاملی برای یادگیری قوانین و تفسیرهای بسکتبال؛ صفحه‌به‌صفحه، با مثال، تصویر، حرکت و تمرین.</p>
+          <div class="hero-actions">
+            <button class="primary-btn" onclick="startCourse()">شروع دوره <span>←</span></button>
+            <button class="ghost-btn" onclick="openLibrary()">کتابخانه قوانین</button>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="court-glow"></div>
+          <div class="referee-figure"><div class="head"></div><div class="body"></div><div class="arm a1"></div><div class="arm a2"></div><div class="leg l1"></div><div class="leg l2"></div></div>
+          <div class="ball"></div>
+          <div class="floating-card c1"><b>102</b><span>Articles</span></div>
+          <div class="floating-card c2"><b>64</b><span>Interpretations</span></div>
+          <div class="floating-card c3"><b>3PO</b><span>Next module</span></div>
+        </div>
+      </div>
+      <div class="section-label">مسیر یادگیری</div>
+      <div class="path-grid">
+        <button class="path-card active" onclick="startCourse()"><span class="path-num">01</span><div><b>قوانین بازی</b><small>Official Rules 2026</small></div><i>→</i></button>
+        <button class="path-card" onclick="startInterpretations()"><span class="path-num">02</span><div><b>تفسیرهای رسمی</b><small>Practical situations</small></div><i>→</i></button>
+        <button class="path-card locked"><span class="path-num">03</span><div><b>IOT</b><small>Individual Officiating Techniques</small></div><em>به‌زودی</em></button>
+        <button class="path-card locked"><span class="path-num">04</span><div><b>3PO</b><small>Three Person Officiating</small></div><em>به‌زودی</em></button>
+      </div>
+      <div class="home-bottom">
+        <div class="tip"><span>✦</span><div><b>روش استفاده</b><p>هر صفحه یک مفهوم را آموزش می‌دهد. با «بعدی» جلو برو، با «قبلی» برگرد و هر جا خواستی متن رسمی قانون را باز کن.</p></div></div>
+        <a class="official-link" href="https://about.fiba.basketball/en/our-sport/official-basketball-rules" target="_blank" rel="noopener">منبع رسمی FIBA ↗</a>
+      </div>
+    </section>
+
+    <section id="course" class="course-screen hidden">
+      <aside class="course-nav" id="courseNav">
+        <div class="nav-head"><button onclick="goHome()">← خانه</button><span id="navMode">RULES 2026</span></div>
+        <div class="nav-progress"><span id="navProgress"></span></div>
+        <div id="chapterList"></div>
+      </aside>
+      <section class="lesson-stage">
+        <div class="lesson-top">
+          <button class="back-home" onclick="goHome()">← خانه</button>
+          <div class="lesson-meta"><span id="lessonIndex">01 / 102</span><span id="lessonType">OFFICIAL RULE</span></div>
+          <button class="toc-btn" onclick="toggleNav()">☰ فهرست</button>
+        </div>
+        <div id="slide" class="slide"></div>
+        <div class="lesson-controls">
+          <button id="prevBtn" class="nav-btn prev" onclick="prevSlide()"><span>→</span> قبلی</button>
+          <div class="dots" id="dots"></div>
+          <button id="nextBtn" class="nav-btn next" onclick="nextSlide()">بعدی <span>←</span></button>
+        </div>
+      </section>
+    </section>
+  </main>
+</div>
+
+<div class="search-overlay hidden" id="searchOverlay">
+  <div class="search-box">
+    <button class="close-search" onclick="closeSearch()">×</button>
+    <div class="eyebrow">SEARCH THE COURSE</div>
+    <h2>دنبال چه چیزی می‌گردی؟</h2>
+    <input id="searchInput" placeholder="مثلاً travelling، throw-in، technical foul ..." autocomplete="off">
+    <div id="searchResults"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
